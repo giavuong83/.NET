@@ -11,7 +11,7 @@
 
 ## Bảng thành viên:
 
-| STT | Tên thành viên   | Mã sinh viên |                                                                                                                          |
+| STT | Tên thành viên   | Mã sinh viên |                                                                                                    
 | --- | ---------------- | ------------ | 
-| 1   | Nguyễn Tấn Gia Vương| 3121410043 |    
 
+| 1   | Nguyễn Tấn Gia Vương| 3121410043|    
