@@ -1,0 +1,78 @@
+﻿@model ShoesStore.ViewModels.RegisterViewModel
+
+<!-- End Header Area -->
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Login/Register</h1>
+                <nav class="d-flex align-items-center">
+                    <a asp-action="Index" asp-controller="Home">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a>Register</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+<!--================Login Box Area =================-->
+<section class="login_box_area section_gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="login_box_img">
+                    <img class="img-fluid" src="~/karma-master/img/login.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="login_form_inner">
+                    <h3>Register an account</h3>
+                    <form asp-action="Register" asp-controller="Account" class="row login_form" method="post" id="contactForm" novalidate="novalidate">
+                        <input asp-for="@Model.Taikhoan.Email" value="123" hidden />
+                        <input asp-for="@Model.Khachhang.EmailNavigation.Email" value="123" hidden />
+                        <input asp-for="@Model.Khachhang.EmailNavigation.Matkhau" value="123" hidden />
+
+                        <div class="col-md-12 form-group">
+                            <input asp-for="Khachhang.Tenkh" type="text" class="form-control" placeholder="User name" />
+                            <span class="text-danger">@Html.ValidationMessageFor(model => model.Khachhang.Tenkh)</span>
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <input asp-for="Khachhang.Email" type="text" class="form-control" placeholder="Email" />
+                            <span class="text-danger">@Html.ValidationMessageFor(model => model.Khachhang.Email)</span>
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <input asp-for="Taikhoan.Matkhau" type="password" class="form-control" placeholder="Password" />
+                            <span class="text-danger">@Html.ValidationMessageFor(model => model.Taikhoan.Matkhau)</span>
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <input asp-for="Khachhang.Sdt" type="text" class="form-control" placeholder="Phone number" />
+                            <span class="text-danger">@Html.ValidationMessageFor(model => model.Khachhang.Sdt)</span>
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <select asp-for="Khachhang.Gioitinh" class="form-control">
+                                <option value="true">Male</option>
+                                <option value="false">Female</option>
+                            </select>
+                            <span class="text-danger">@Html.ValidationMessageFor(model => model.Khachhang.Gioitinh)</span>
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <input asp-for="Khachhang.Ngaysinh" type="date" class="form-control" />
+                            <span class="text-danger">@Html.ValidationMessageFor(model => model.Khachhang.Ngaysinh)</span>
+                        </div>
+
+                        <div class="col-md-12 form-group">
+                            <button type="submit" class="primary-btn">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Login Box Area =================-->

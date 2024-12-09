@@ -1,0 +1,92 @@
+﻿@model List<ShoesStore.Models.Blog>
+
+@{
+    ViewData["Title"] = "Blog List";
+}
+
+<!-- End Header Area -->
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            <div class="col-first">
+                <h1>Blog Page</h1>
+                <nav class="d-flex align-items-center">
+                    <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+                    <a href="category.html">Blog</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Banner Area -->
+<!--================Blog Categorie Area =================-->
+<section class="blog_categorie_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="categories_post">
+                    <img src="~/karma-master/img/blog/cat-post/cat-post-3.jpg" alt="post">
+                    <div class="categories_details">
+                        <div class="categories_text">
+                            <a href="blog-details.html">
+                                <h5>Social Life</h5>
+                            </a>
+                            <div class="border_line"></div>
+                            <p>Enjoy your social life together</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="categories_post">
+                    <img src="~/karma-master/img/blog/cat-post/cat-post-2.jpg" alt="post">
+                    <div class="categories_details">
+                        <div class="categories_text">
+                            <a href="blog-details.html">
+                                <h5>Politics</h5>
+                            </a>
+                            <div class="border_line"></div>
+                            <p>Be a part of politics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="categories_post">
+                    <img src="~/karma-master/img/blog/cat-post/cat-post-1.jpg" alt="post">
+                    <div class="categories_details">
+                        <div class="categories_text">
+                            <a href="blog-details.html">
+                                <h5>Food</h5>
+                            </a>
+                            <div class="border_line"></div>
+                            <p>Let the food be finished</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <h2 class="text-center">Blog List</h2>
+
+    <div class="row">
+        @foreach (var blog in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="@Url.Content($"~/img/blog/{blog.Anhdaidien}")" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <div class="card-body">
+                        <h5 class="card-title">@blog.Theloai</h5>
+                        <p class="card-text">@Html.Raw(blog.Noidung.Substring(0, Math.Min(blog.Noidung.Length, 100)))...</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                                <a href="@Url.Action("Detail", "Blog", new { id = blog.Mablog })" class="btn btn-sm btn-outline-secondary">View More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

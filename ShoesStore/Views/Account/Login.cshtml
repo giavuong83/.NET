@@ -1,0 +1,76 @@
+﻿@model Taikhoan
+
+<!-- End Header Area -->
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+			<div class="col-first">
+				<h1>Login/Register</h1>
+				<nav class="d-flex align-items-center">
+					<a asp-action="Index" asp-controller="Home">Home<span class="lnr lnr-arrow-right"></span></a>
+					<a>Login/Register</a>
+				</nav>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Banner Area -->
+
+<!--================Login Box Area =================-->
+<section class="login_box_area section_gap">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="login_box_img">
+					<img class="img-fluid" src="~/karma-master/img/login.jpg" alt="">
+					<div class="hover">
+						<h4>New to our website?</h4>
+						<p>There are advances being made in science and technology everyday, and a good example of this is the</p>
+						<a asp-action="Register" asp-controller="Account" class="primary-btn">Create an Account</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<div class="login_form_inner">
+					<h3>Log in to enter</h3>
+
+					<!-- Display Success Message if it exists -->
+					@if (TempData["SuccessMessage"] != null)
+					{
+							<div class="alert alert-success">
+							@TempData["SuccessMessage"]
+							</div>
+					}
+
+					<form asp-action="Login" asp-controller="Account" class="row login_form" method="post" id="contactForm" novalidate="novalidate">
+						<!-- Hidden field to store the backToPage value -->
+						<input name="backToPage" type="hidden" value="@ViewBag.backToPage" />
+
+						<div class="col-md-12 form-group">
+							<!-- Bind the email field to the Taikhoan model -->
+							<input asp-for="Email" type="text" class="form-control" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+							<span asp-validation-for="Email" class="text-danger"></span>
+						</div>
+
+						<div class="col-md-12 form-group">
+							<!-- Bind the password field to the Taikhoan model -->
+							<input asp-for="Matkhau" type="password" class="form-control" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+							<span asp-validation-for="Matkhau" class="text-danger"></span>
+						</div>
+
+						<div class="col-md-12 form-group">
+							<button type="submit" value="submit" class="primary-btn">Log In</button>
+						</div>
+						<div class="col-md-12 form-group text-center">
+							<a asp-action="ForgotPassword" asp-controller="Account" class="genric-btn primary-border medium">Forgot Password?</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Login Box Area =================-->
+
+<!-- start footer Area -->
